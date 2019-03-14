@@ -4,16 +4,16 @@ import React, { Component } from 'react';
 class ShowBooks extends Component {
     render() {
 
-    const { filterBooks } = this.props;
+    const { filterBooks, getSearchGenre, getSearchName } = this.props;
 
     console.log(filterBooks)
         return(
             <div className="Books__container">
                 <label className="Genre__label"></label>
-                <input type="text" className="Genre__field" placeholder="Search books by genre"/>
+                <input type="text" className="Genre__field" placeholder="Search books by genre" onKeyUp={getSearchGenre}/>
 
                 <label className="Title__label"></label>
-                <input type="text" className="Title__field" placeholder="Search books by title"/>
+                <input type="text" className="Title__field" placeholder="Search books by title" onKeyUp={getSearchName}/>
 
                 {filterBooks.map((book, index)=>{
                     return(
