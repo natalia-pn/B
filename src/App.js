@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import logo from './favicon_transparente.png';
+import logo from './logo.png';
 import './App.css';
 import AddBooks from './components/AddBooks';
 import ShowBooks from './components/ShowBooks';
