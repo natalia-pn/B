@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class ShowBooks extends Component {
     render() {
 
-    const { filterBooks, getSearchGenre, getSearchName } = this.props;
+    const { filterBooks, getSearchGenre, getSearchName, removeBook } = this.props;
 
     console.log(filterBooks)
         return(
@@ -18,6 +18,8 @@ class ShowBooks extends Component {
                 {filterBooks.map((book, index)=>{
                     return(
                         <li className="Book__container" key={index}>
+                            <button type="button" className="Edit-button" value={book.id}>Edit</button>
+                            <button type="button" className="Delete-button" value={book.id} onClick={removeBook}>Delete</button>
                             <p className="Book__title">{book.title}</p>
                             <p className="Book__author">{book.author}</p>
                             <p className="Book__genre">{book.genre}</p>
