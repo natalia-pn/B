@@ -5,7 +5,7 @@ class Menu extends Component {
     render() {
         return(
             <Fragment>
-                <NavLink exact to="/ShowBooks" className="Show-books__link" activeClassName="is-active"><p className="Show-books"> Show books</p>
+                <NavLink exact to="/" className="Show-books__link" activeClassName="is-active"><p className="Show-books">Show books</p>
                 </NavLink>
     
             
