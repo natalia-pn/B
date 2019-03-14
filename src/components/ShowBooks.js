@@ -9,15 +9,15 @@ class ShowBooks extends Component {
     console.log(filterBooks)
         return(
             <div className="Books__container">
-                <label className="Genre__label" placeholder="Search books by genre"></label>
-                <input type="text" className="Genre__field"/>
+                <label className="Genre__label"></label>
+                <input type="text" className="Genre__field" placeholder="Search books by genre"/>
 
-                <label className="Title__label" placeholder="Search books by title"></label>
-                <input type="text" className="Title__field"/>
+                <label className="Title__label"></label>
+                <input type="text" className="Title__field" placeholder="Search books by title"/>
 
-                {filterBooks.map(book=>{
+                {filterBooks.map((book, index)=>{
                     return(
-                        <li className="Book__container">
+                        <li className="Book__container" key={index}>
                             <p className="Book__title">{book.title}</p>
                             <p className="Book__author">{book.author}</p>
                             <p className="Book__genre">{book.genre}</p>
