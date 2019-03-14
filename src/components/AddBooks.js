@@ -10,8 +10,12 @@ class AddBooks extends Component {
 
                 <label className="Form__author-label">Author: </label>
                 <input type="text"/> 
- 
-            
+
+                <label className="Form__genre-label">Genre: </label>
+                <input type="text"/> 
+
+                <label className="Form__price-label">Price: </label>
+                <input type="text"/> 
             </form>
         );   
     }
