@@ -18,12 +18,16 @@ class ShowBooks extends Component {
                 {filterBooks.map((book, index)=>{
                     return(
                         <li className="Book__container" key={index}>
-                            <button type="button" className="Edit-button" value={book.id}>Edit</button>
-                            <button type="button" className="Delete-button" value={book.id} onClick={removeBook}>Delete</button>
-                            <p className="Book__title">{book.title}</p>
-                            <p className="Book__author">{book.author}</p>
-                            <p className="Book__genre">{book.genre}</p>
-                            <p className="Book__price">{book.price}</p>
+                            <div className="action-buttons__container">
+                                <button type="button" className="Edit-button" value={book.id}>Edit</button>
+                                <button type="button" className="Delete-button" value={book.id} onClick={removeBook}>Delete</button>
+                            </div>
+                            <div className="Book__info">
+                                <p className="Book__title">{book.title}</p>
+                                <p className="Book__author">{book.author}</p>
+                                <p className="Book__genre">{book.genre}</p>
+                                <p className="Book__price">{book.price}</p>
+                            </div>
                         </li>
                     )
                 })}
