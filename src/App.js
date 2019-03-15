@@ -138,6 +138,7 @@ class App extends Component {
   }
     
   render() {
+    
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form } = this;
 
     return (

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SubmitButton from './SubmitButton';
 
 
 class AddBooks extends Component {
@@ -20,8 +21,7 @@ class AddBooks extends Component {
                     <input type="text" onKeyUp={getPriceValue}/> 
                 </form>
                 <div className="Send-button__container">
-                    <label className="send-books__label"></label>
-                    <input type="submit" className="Send-books__button" onClick={submitBook}/>
+                   <SubmitButton submitBook={submitBook}/>
                 </div>
             </div>
         );   
