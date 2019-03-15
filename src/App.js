@@ -113,12 +113,13 @@ class App extends Component {
     const { genreValue, nameValue, booksArray} = this.state;
 
      booksArray
-     .map((book, index)=> { 
+      .map((book, index)=> { 
        book.id = index; 
+       console.log(book)
        return book;
         })
-    .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
-    .filter(book => book.title.toUpperCase().includes(nameValue.toUpperCase()));
+      .filter(book => console.log(book.genre.toUpperCase().includes(genreValue.toUpperCase())))
+      .filter(book => console.log(book.title.toUpperCase().includes(nameValue.toUpperCase())));
 
     booksList = booksArray;
 
@@ -138,7 +139,7 @@ class App extends Component {
   }
     
   render() {
-    
+
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form } = this;
 
     return (
