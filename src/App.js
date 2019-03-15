@@ -55,19 +55,7 @@ class App extends Component {
     this.filterBooks = this.filterBooks.bind(this);
     this.removeBook = this.removeBook.bind(this);
   }
-
-  componentDidMount() {
-    this.AddBooksId();
-  }
-
-  AddBooksId() {
-    const newBooksList = booksList.map((book, index)=> {
-      book.id = index;
-      return book;
-    })
-    booksList = newBooksList;
-    this.setState({booksArray: newBooksList})
-  }
+ 
 
   getTitleValue(e) {
     const { formInfo } = this.state;
@@ -122,15 +110,23 @@ class App extends Component {
   }
 
   filterBooks() {
-    const { genreValue, nameValue, booksArray } = this.state;
-    return booksArray
+    const { genreValue, nameValue, booksArray} = this.state;
+
+     booksArray
+     .map((book, index)=> { 
+       book.id = index; 
+       return book;
+        })
     .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
     .filter(book => book.title.toUpperCase().includes(nameValue.toUpperCase()));
+
+    booksList = booksArray;
+
+    return booksArray;
   }
 
   removeBook(e) {
     const buttonValue = e.currentTarget.value;
-    console.log('click', buttonValue)
 
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
@@ -139,11 +135,9 @@ class App extends Component {
       }
     }
     this.setState({booksArray: booksList})
-    console.log(this.state.booksArray)
   }
     
   render() {
-
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form } = this;
 
     return (

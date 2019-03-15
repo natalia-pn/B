@@ -16,6 +16,10 @@ class ShowBooks extends Component {
                 <input type="text" className="Title__field" placeholder="Search books by title" onKeyUp={getSearchName}/>
 
                 {filterBooks.map((book, index)=>{
+                    console.log(filterBooks)
+                    // console.log(book)
+                    // console.log(book.title)
+                    // console.log(book.id)
                     return(
                         <li className="Book__container" key={index}>
                             <div className="action-buttons__container">
