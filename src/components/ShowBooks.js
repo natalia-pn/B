@@ -18,6 +18,7 @@ class ShowBooks extends Component {
 
                 <div className="Books__container">
                     {filterBooks.map((book, index)=>{
+                        book.id = index;
                         return(
                             <li className="Book__card" key={index}>
                                 <div className="Action-buttons__container">

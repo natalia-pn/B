@@ -112,12 +112,7 @@ class App extends Component {
   filterBooks() {
     const { genreValue, nameValue, booksArray} = this.state;
 
-     booksArray
-      .map((book, index)=> { 
-       book.id = index; 
-       console.log(book)
-       return book;
-        })
+      booksArray
       .filter(book => console.log(book.genre.toUpperCase().includes(genreValue.toUpperCase())))
       .filter(book => console.log(book.title.toUpperCase().includes(nameValue.toUpperCase())));
 
