@@ -112,13 +112,9 @@ class App extends Component {
   filterBooks() {
     const { genreValue, nameValue, booksArray} = this.state;
 
-      booksArray
-      .filter(book => console.log(book.genre.toUpperCase().includes(genreValue.toUpperCase())))
-      .filter(book => console.log(book.title.toUpperCase().includes(nameValue.toUpperCase())));
-
-    booksList = booksArray;
-
-    return booksArray;
+      return booksArray
+      .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
+      .filter(book => book.title.toUpperCase().includes(nameValue.toUpperCase()));
   }
 
   removeBook(e) {
