@@ -42,7 +42,8 @@ class App extends Component {
       nameValue: '',
       genreValue: '', 
       booksArray: booksList,
-      bookToUpdate: {}
+      bookToUpdate: {},
+      isOpen: false,
     }
 
     this.form = React.createRef();
@@ -57,6 +58,7 @@ class App extends Component {
     this.filterBooks = this.filterBooks.bind(this);
     this.removeBook = this.removeBook.bind(this);
     this.updateBooksWindow = this.updateBooksWindow.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
  
 
@@ -143,6 +145,13 @@ class App extends Component {
         this.setState({bookToUpdate: book})
       }
     }
+    this.toggleModal();
+  }
+
+  toggleModal() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
   }
   
   render() {
@@ -174,7 +183,7 @@ class App extends Component {
           </Switch>
         </main>
 
-        <UpdateBooksModal>
+        <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
           <div className="Form__container">
             <form className="Add-books__form" ref={form}>
                 <label className="Form__title-label">Title: </label>
