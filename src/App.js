@@ -5,7 +5,7 @@ import AddBooks from './components/AddBooks';
 import ShowBooks from './components/ShowBooks';
 import Menu from './components/Menu';
 import { Route, Switch } from 'react-router-dom';
-import UpdateBooks from './components/UpdateBooks';
+import UpdateBooksModal from './components/UpdateBooksModal';
 
 let booksList= [
   {
@@ -173,6 +173,31 @@ class App extends Component {
             </Fragment>
           </Switch>
         </main>
+
+        <UpdateBooksModal>
+          <div className="Form__container">
+            <form className="Add-books__form" ref={form}>
+                <label className="Form__title-label">Title: </label>
+                <input type="text" onKeyUp={getTitleValue}/> 
+
+                <label className="Form__author-label">Author: </label>
+                <input type="text" onKeyUp={getAuthorValue}/> 
+
+                <label className="Form__genre-label">Genre: </label>
+                <input type="text" onKeyUp={getGenreValue}/> 
+
+                <label className="Form__price-label">Price: </label>
+                <input type="text" onKeyUp={getPriceValue}/> 
+            </form>
+
+            <div className="Update-button__container">
+                <label className="Update-books__label"></label>
+                <input type="submit" className="Update-books__button" 
+                // onClick={}
+                />
+            </div>
+          </div>
+        </UpdateBooksModal>
       </div>
     );
   }
