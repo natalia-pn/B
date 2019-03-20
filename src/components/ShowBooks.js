@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class ShowBooks extends Component {
     render() {
 
-    const { filterBooks, getSearchGenre, getSearchName, removeBook } = this.props;
+    const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow } = this.props;
 
         return(
             <Fragment>
@@ -22,7 +22,7 @@ class ShowBooks extends Component {
                     {filterBooks.map((book, index)=>{
                         book.id = index;
                         return(
-                            <BookCard key={book.id} id={book.id}  title={book.title} author={book.author} genre={book.genre} price={book.price} removeBook={removeBook}/>
+                            <BookCard key={book.id} id={book.id}  title={book.title} author={book.author} genre={book.genre} price={book.price} removeBook={removeBook} updateBooksWindow={updateBooksWindow}/>
                         )
                     })}
                 </div>

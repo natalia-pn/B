@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import SubmitButton from './SubmitButton';
 import PropTypes from 'prop-types';
 
 
-class AddBooks extends Component {
+class UpdateBooks extends Component {
     render() {
         const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue } = this.props;
         return(
@@ -21,15 +20,19 @@ class AddBooks extends Component {
                     <label className="Form__price-label">Price: </label>
                     <input type="text" onKeyUp={getPriceValue}/> 
                 </form>
+
                 <div className="Send-button__container">
-                   <SubmitButton submitBook={submitBook}/>
+                    <label className="send-books__label"></label>
+                    <input type="submit" className="Send-books__button" 
+                    // onClick={}
+                    />
                 </div>
             </div>
         );   
     }
 }
 
-AddBooks.propTypes = {
+UpdateBooks.propTypes = {
     form: PropTypes.object,
     submitBook: PropTypes.func,
     getTitleValue: PropTypes.func,
@@ -38,4 +41,4 @@ AddBooks.propTypes = {
     getPriceValue: PropTypes.func
     }
 
-export default AddBooks;
+export default UpdateBooks;

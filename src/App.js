@@ -5,6 +5,7 @@ import AddBooks from './components/AddBooks';
 import ShowBooks from './components/ShowBooks';
 import Menu from './components/Menu';
 import { Route, Switch } from 'react-router-dom';
+import UpdateBooks from './components/UpdateBooks';
 
 let booksList= [
   {
@@ -54,6 +55,7 @@ class App extends Component {
     this.getSearchGenre = this.getSearchGenre.bind(this);
     this.filterBooks = this.filterBooks.bind(this);
     this.removeBook = this.removeBook.bind(this);
+    this.updateBooksWindow = this.updateBooksWindow.bind(this);
   }
  
 
@@ -128,10 +130,30 @@ class App extends Component {
     }
     this.setState({booksArray: booksList})
   }
+
+  updateBooksWindow(e) {
+    const buttonValue = e.currentTarget.value;
+    console.log('funciona')
+    for (const book of booksList) {
+      if(parseInt(buttonValue) === book.id) {
+        const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
+        const bookToUpdate = booksList[index];
+        console.log(bookToUpdate);
+       
+      }
+    }
+    // this.setState({booksArray: booksList})
+
+    return ( <UpdateBooks /> );
+
+  }
+
+
+
     
   render() {
 
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow } = this;
 
     return (
       <div className="App">
@@ -150,7 +172,7 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook}/>
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow}/>
               )}/>
               <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form}/>)}/>
             </Fragment>
