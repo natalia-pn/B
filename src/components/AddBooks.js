@@ -30,7 +30,7 @@ class AddBooks extends Component {
 }
 
 AddBooks.propTypes = {
-    form: PropTypes.element,
+    form: PropTypes.object,
     submitBook: PropTypes.func,
     getTitleValue: PropTypes.func,
     getAuthorValue: PropTypes.func,
