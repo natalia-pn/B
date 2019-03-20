@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 class BookCard extends Component {
     render() {
@@ -22,6 +23,15 @@ class BookCard extends Component {
             </Fragment>
         );   
     }
+}
+
+BookCard.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    genre: PropTypes.string,
+    price: PropTypes.string,
+    removeBook: PropTypes.func
 }
 
 export default BookCard;

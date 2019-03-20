@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import BookCard from './BookCard';
+import PropTypes from 'prop-types';
 
 
 class ShowBooks extends Component {
@@ -28,6 +29,13 @@ class ShowBooks extends Component {
             </Fragment>
         );   
     }
+}
+
+ShowBooks.propTypes = {
+    filterBooks: PropTypes.array,
+    getSearchGenre: PropTypes.func,
+    getSearchName: PropTypes.func,
+    removeBook: PropTypes.func
 }
 
 export default ShowBooks;

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 class submitButton extends Component {
 
@@ -12,6 +13,10 @@ class submitButton extends Component {
             </Fragment>
         );
     }
+}
+
+submitButton.propTypes = {
+    submitBook: PropTypes.func
 }
 
 export default submitButton;

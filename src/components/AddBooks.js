@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SubmitButton from './SubmitButton';
+import PropTypes from 'prop-types';
 
 
 class AddBooks extends Component {
@@ -27,5 +28,14 @@ class AddBooks extends Component {
         );   
     }
 }
+
+AddBooks.propTypes = {
+    form: PropTypes.element,
+    submitBook: PropTypes.func,
+    getTitleValue: PropTypes.func,
+    getAuthorValue: PropTypes.func,
+    getGenreValue: PropTypes.func,
+    getPriceValue: PropTypes.func
+    }
 
 export default AddBooks;
