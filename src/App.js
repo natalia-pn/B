@@ -159,6 +159,8 @@ class App extends Component {
 
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow } = this;
 
+    const { bookToUpdate } = this.state;
+
     return (
       <div className="App">
         <header className="App__header">
@@ -187,16 +189,16 @@ class App extends Component {
           <div className="Form__container">
             <form className="Add-books__form" ref={form}>
                 <label className="Form__title-label">Title: </label>
-                <input type="text" onKeyUp={getTitleValue}/> 
+                <input type="text" onKeyUp={getTitleValue} placeholder={`Edit: ${bookToUpdate.title}`}/> 
 
                 <label className="Form__author-label">Author: </label>
-                <input type="text" onKeyUp={getAuthorValue}/> 
+                <input type="text" onKeyUp={getAuthorValue} placeholder={`Edit: ${bookToUpdate.author}`}/> 
 
                 <label className="Form__genre-label">Genre: </label>
-                <input type="text" onKeyUp={getGenreValue}/> 
+                <input type="text" onKeyUp={getGenreValue} placeholder={`Edit: ${bookToUpdate.genre}`}/> 
 
                 <label className="Form__price-label">Price: </label>
-                <input type="text" onKeyUp={getPriceValue}/> 
+                <input type="text" onKeyUp={getPriceValue} placeholder={`Edit: ${bookToUpdate.price}`}/> 
             </form>
 
             <div className="Update-button__container">
