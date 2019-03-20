@@ -42,6 +42,7 @@ class App extends Component {
       nameValue: '',
       genreValue: '', 
       booksArray: booksList,
+      bookToUpdate: {}
     }
 
     this.form = React.createRef();
@@ -92,7 +93,7 @@ class App extends Component {
         author: '',
         genre: '',
         price: ''
-      }
+      },
    })
    this.form.current.reset();
   }
@@ -133,25 +134,19 @@ class App extends Component {
 
   updateBooksWindow(e) {
     const buttonValue = e.currentTarget.value;
-    console.log('funciona')
+
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
         const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
-        const bookToUpdate = booksList[index];
-        console.log(bookToUpdate);
-       
+        const book = booksList[index];
+ 
+        this.setState({bookToUpdate: book})
       }
     }
-    // this.setState({booksArray: booksList})
-
-    return ( <UpdateBooks /> );
-
   }
-
-
-
-    
+  
   render() {
+    console.log(this.state.bookToUpdate)
 
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow } = this;
 
