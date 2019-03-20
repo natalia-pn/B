@@ -6,6 +6,7 @@ import ShowBooks from './components/ShowBooks';
 import Menu from './components/Menu';
 import { Route, Switch } from 'react-router-dom';
 import UpdateBooksModal from './components/UpdateBooksModal';
+import SubmitButton from './components/SubmitButton';
 
 let booksList= [
   {
@@ -88,16 +89,19 @@ class App extends Component {
 
   submitBook(e) {
     e.preventDefault();
-    booksList.push(this.state.formInfo);
-    this.setState({
-      formInfo: {
-        title: '',
-        author: '',
-        genre: '',
-        price: ''
-      },
-   })
-   this.form.current.reset();
+    const buttonValue = e.currentTarget.value;
+
+    console.log(buttonValue)
+
+    for (const book of booksList) {
+      if(parseInt(buttonValue) === book.id) {
+        const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
+        booksList[index] = this.state.formInfo;
+        console.log(booksList[index] = this.state.formInfo)
+      } 
+    }
+    this.setState({booksArray: booksList})
+    console.log(this.state.booksArray)
   }
 
   getSearchName(e) {
@@ -155,7 +159,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state.bookToUpdate)
 
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow } = this;
 
@@ -189,23 +192,20 @@ class App extends Component {
           <div className="Form__container">
             <form className="Add-books__form" ref={form}>
                 <label className="Form__title-label">Title: </label>
-                <input type="text" onKeyUp={getTitleValue} placeholder={`Edit: ${bookToUpdate.title}`}/> 
+                <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title}/> 
 
                 <label className="Form__author-label">Author: </label>
-                <input type="text" onKeyUp={getAuthorValue} placeholder={`Edit: ${bookToUpdate.author}`}/> 
+                <input type="text" onKeyUp={getAuthorValue} defaultValue={bookToUpdate.author}/> 
 
                 <label className="Form__genre-label">Genre: </label>
-                <input type="text" onKeyUp={getGenreValue} placeholder={`Edit: ${bookToUpdate.genre}`}/> 
+                <input type="text" onKeyUp={getGenreValue} defaultValue={bookToUpdate.genre}/> 
 
                 <label className="Form__price-label">Price: </label>
-                <input type="text" onKeyUp={getPriceValue} placeholder={`Edit: ${bookToUpdate.price}`}/> 
+                <input type="text" onKeyUp={getPriceValue} defaultValue={bookToUpdate.price}/> 
             </form>
 
-            <div className="Update-button__container">
-                <label className="Update-books__label"></label>
-                <input type="submit" className="Update-books__button" 
-                // onClick={}
-                />
+            <div className="Send-button__container">
+                <SubmitButton submitBook={submitBook} id={bookToUpdate.id} />
             </div>
           </div>
         </UpdateBooksModal>

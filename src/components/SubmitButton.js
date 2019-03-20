@@ -5,11 +5,11 @@ class submitButton extends Component {
 
     render() {
         
-        const { submitBook } = this.props;
+        const { submitBook, id } = this.props;
         return(
             <Fragment>
                 <label className="send-books__label"></label>
-                <input type="submit" className="Send-books__button" onClick={submitBook}/>
+                <input type="submit" className="Send-books__button" onClick={submitBook} value={id}/>
             </Fragment>
         );
     }
