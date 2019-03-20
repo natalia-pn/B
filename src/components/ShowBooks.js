@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import BookCard from './BookCard';
 
 
 class ShowBooks extends Component {
@@ -20,23 +21,11 @@ class ShowBooks extends Component {
                     {filterBooks.map((book, index)=>{
                         book.id = index;
                         return(
-                            <li className="Book__card" key={index}>
-                                <div className="Action-buttons__container">
-                                    <button type="button" className="Edit-button" value={book.id}>Edit</button>
-                                    <button type="button" className="Delete-button" value={book.id} onClick={removeBook}>Delete</button>
-                                </div>
-                                <div className="Book__info">
-                                    <p className="Book__title">{book.title}</p>
-                                    <p className="Book__author">{book.author}</p>
-                                    <p className="Book__genre">{book.genre}</p>
-                                    <p className="Book__price">{book.price}</p>
-                                </div>
-                            </li>
+                            <BookCard key={book.id} id={book.id}  title={book.title} author={book.author} genre={book.genre} price={book.price} removeBook={removeBook}/>
                         )
                     })}
                 </div>
             </Fragment>
-           
         );   
     }
 }
