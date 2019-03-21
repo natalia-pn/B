@@ -9,27 +9,42 @@
     margin: 0 10px 25px 10px;
     border-radius: 8px;
 
-    // @media all and (min-width:600px) {
+    @media all and (min-width:768px) {
+        width: 300px;
+        height: 400px;
+        margin: 0 20px 25px 20px;
+        border-radius: 10px;
        
-    // }
+    }
 }
 
 .Book-top__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 0 15px 0;
+    margin: 20px 0 35px 0;
+    @media all and (min-width:768px) {
+        margin: 30px 0 55px 0; 
+    }
 }
 
 .Book__logo {
     width: 20px;
     height: 20px;
     margin-left: 15px;
+    @media all and (min-width:768px) {
+        width: 30px;
+        height: 30px;
+        margin-left: 25px;
+    }
 }
 
 .Action-buttons__container {
     display: flex;
     justify-content: flex-end;  
+    @media all and (min-width:768px) {
+        margin-right: 25px;
+    }
 }
 
 .Edit-button {
@@ -44,36 +59,56 @@
 .Book__info {
     text-align: center;
     font-size: 14px;
+    margin: 0 10px;
+    // padding: 0 10px;
+    @media all and (min-width:768px) {
+        font-size: 18px;
+        margin: 0 20px;
+    }
 }
 
 .Book__title {
    font-weight: 700;
    text-justify: justify;
-   padding: 10px;
-   margin: 0 0 13px;
+   margin: 0 10px 20px;
+   height: 38px;
 
+   @media all and (min-width:768px) {
+        height: 48px;
+        margin: 0 20px 30px;
+    }
 }
 
 .Book__author {
     color: $dark-blue;
     font-weight: 700;
-    font-size: 14px;
-    margin: 0 0 14px;
-    padding: 10px;
+    margin: 0 10px 20px;
+    height: 38px;
+ 
+    @media all and (min-width:768px) {
+        height: 48px;
+        margin: 0 20px 30px;
+    }
 }
 
 .Book__genre {
     color: $fucsia;
     font-weight: 700;
     font-size: 13px;
-    margin: 0 0 15px;
-    padding: 10px;
+    margin: 0 10px 10px;
 
+    @media all and (min-width:768px) {
+        font-size: 17px;
+        margin: 0 20px 20px;
+    }
 }
 
 .Book__price {
     color: $green;
     font-weight: 700;
-    margin: 0;
-    padding: 10px;
+    margin: 0 10px;
+  
+    @media all and (min-width:768px) {
+        margin: 0 20px;
+    }
 }
