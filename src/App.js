@@ -45,6 +45,13 @@ class App extends Component {
       booksArray: booksList,
       bookToUpdate: {},
       isOpen: false,
+
+      formDefaultValues: {
+        title: '',
+        author: '',
+        genre: '',
+        price: ''
+      }
     }
 
     this.form = React.createRef();
@@ -60,45 +67,74 @@ class App extends Component {
     this.removeBook = this.removeBook.bind(this);
     this.updateBooksWindow = this.updateBooksWindow.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.updateBook = this.updateBook.bind(this);
   }
  
 
   getTitleValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, title: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, title: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
+    console.log(bookToUpdate  )
   }
 
   getAuthorValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, author: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, author: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
+    console.log(bookToUpdate  )
   }
 
   getGenreValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, genre: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, genre: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
+    console.log(bookToUpdate  )
   }
 
   getPriceValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, price: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, price: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
+    console.log(bookToUpdate)
+
   }
 
   submitBook(e) {
     e.preventDefault();
-    const buttonValue = e.currentTarget.value;
+    booksList.push(this.state.formInfo);
 
-    console.log(buttonValue)
+    this.setState({
+      formInfo: {
+        title: '',
+        author: '',
+        genre: '',
+        price: ''
+      }
+    })
+    this.form.current.reset();
+  }
 
+
+  updateBook(e) {
+    e.preventDefault();
+    const buttonValue = e.currentTarget.id;
+    const { bookToUpdate } = this.state;
+  
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
         const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
-        booksList[index] = this.state.formInfo;
-        console.log(booksList[index] = this.state.formInfo)
-      } 
+
+        booksList[index] = bookToUpdate;
+      }
     }
     this.setState({booksArray: booksList})
     console.log(this.state.booksArray)
@@ -107,7 +143,7 @@ class App extends Component {
   getSearchName(e) {
     const nameValue = e.currentTarget.value;
     this.setState({
-      nameValue: nameValue
+      nameValue: nameValue, 
     })
   }
 
@@ -127,7 +163,7 @@ class App extends Component {
   }
 
   removeBook(e) {
-    const buttonValue = e.currentTarget.value;
+    const buttonValue = e.currentTarget.id;
 
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
@@ -160,7 +196,7 @@ class App extends Component {
   
   render() {
 
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook } = this;
 
     const { bookToUpdate } = this.state;
 
@@ -192,7 +228,7 @@ class App extends Component {
           <div className="Form__container">
             <form className="Add-books__form" ref={form}>
                 <label className="Form__title-label">Title: </label>
-                <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title}/> 
+                <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 
 
                 <label className="Form__author-label">Author: </label>
                 <input type="text" onKeyUp={getAuthorValue} defaultValue={bookToUpdate.author}/> 
@@ -205,7 +241,7 @@ class App extends Component {
             </form>
 
             <div className="Send-button__container">
-                <SubmitButton submitBook={submitBook} id={bookToUpdate.id} />
+                <SubmitButton action={updateBook} id={bookToUpdate.id} />
             </div>
           </div>
         </UpdateBooksModal>

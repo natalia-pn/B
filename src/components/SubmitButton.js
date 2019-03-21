@@ -5,18 +5,18 @@ class submitButton extends Component {
 
     render() {
         
-        const { submitBook, id } = this.props;
+        const { action, id } = this.props;
         return(
             <Fragment>
                 <label className="send-books__label"></label>
-                <input type="submit" className="Send-books__button" onClick={submitBook} value={id}/>
+                <input type="submit" className="Send-books__button" onClick={action} id={id}/>
             </Fragment>
         );
     }
 }
 
 submitButton.propTypes = {
-    submitBook: PropTypes.func
+    action: PropTypes.func
 }
 
 export default submitButton;
