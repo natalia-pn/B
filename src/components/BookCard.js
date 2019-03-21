@@ -9,8 +9,8 @@ class BookCard extends Component {
             <Fragment>
                 <li className="Book__card">
                     <div className="Action-buttons__container">
-                        <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}>Edit</button>
-                        <button type="button" className="Delete-button" value={id} onClick={removeBook}>Delete</button>
+                        <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i class="fas fa-pen"></i></button>
+                        <button type="button" className="Delete-button" value={id} onClick={removeBook}><i class="fas fa-trash-alt"></i></button>
                     </div>
 
                     <div className="Book__info">

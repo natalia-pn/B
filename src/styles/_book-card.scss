@@ -1,14 +1,56 @@
 .Book__card {
-    background-color: $white;
     list-style: none;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    box-shadow: 5px 10px 13px $dark-blue;
+    margin: 0 10px 15px 10px;
+    border-radius: 8px;
 }
 
 
-// Action-buttons__container
-// Edit-button
-// Delete-button
-// Book__info
-// Book__title
-// Book__author
-// Book__genre
-// Book__price
+.Action-buttons__container {
+    display: flex;
+    justify-content: flex-end;  
+    margin: 15px 0 15px 0;
+}
+
+.Edit-button {
+    border: none;
+    outline: none;
+}
+
+
+.Delete-button {
+    border: none;
+    outline: none;
+}
+.Book__info {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    text-align: center;
+    font-size: 10px;
+}
+
+.Book__title {
+   font-weight: 700;
+   text-justify: justify;
+   padding: 5px;
+}
+
+.Book__author {
+    color: $fucsia;
+    font-weight: 700;
+}
+
+.Book__genre {
+    color: $dark-blue;
+    font-weight: 700;
+}
+
+.Book__price {
+    color: $green;
+}

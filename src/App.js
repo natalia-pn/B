@@ -27,6 +27,12 @@ let booksList= [
     genre: 'fiction novel',
     price: '20 €'
   },
+  {
+    title: 'Γιατί σκότωσα την καλύτερη μου φίλη',
+    author: 'Aμάντα Mιχαλοπούλου',
+    genre: 'historical novel',
+    price: '25 €'
+  },
 ];
 
 class App extends Component {
