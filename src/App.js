@@ -55,6 +55,7 @@ class App extends Component {
     }
 
     this.form = React.createRef();
+    // this.updateform = React.createRef();
 
     this.getTitleValue = this.getTitleValue.bind(this);
     this.getAuthorValue = this.getAuthorValue.bind(this);
@@ -111,7 +112,6 @@ class App extends Component {
   submitBook(e) {
     e.preventDefault();
     booksList.push(this.state.formInfo);
-
     this.setState({
       formInfo: {
         title: '',
@@ -119,10 +119,9 @@ class App extends Component {
         genre: '',
         price: ''
       }
-    })
-    this.form.current.reset();
+   })
+   this.form.current.reset();
   }
-
 
   updateBook(e) {
     e.preventDefault();
@@ -163,7 +162,7 @@ class App extends Component {
   }
 
   removeBook(e) {
-    const buttonValue = e.currentTarget.id;
+    const buttonValue = e.currentTarget.value;
 
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
@@ -226,7 +225,7 @@ class App extends Component {
 
         <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
           <div className="Form__container">
-            <form className="Add-books__form" ref={form}>
+            <form className="Add-books__form">
                 <label className="Form__title-label">Title: </label>
                 <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 
 
