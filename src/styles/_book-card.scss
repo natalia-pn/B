@@ -10,7 +10,6 @@
     border-radius: 8px;
 }
 
-
 .Action-buttons__container {
     display: flex;
     justify-content: flex-end;  
@@ -21,7 +20,6 @@
     border: none;
     outline: none;
 }
-
 
 .Delete-button {
     border: none;
@@ -42,15 +40,17 @@
 }
 
 .Book__author {
-    color: $fucsia;
-    font-weight: 700;
-}
-
-.Book__genre {
     color: $dark-blue;
     font-weight: 700;
 }
 
+.Book__genre {
+    color: $fucsia;
+    font-weight: 700;
+    font-size: 8px;
+}
+
 .Book__price {
     color: $green;
+    font-weight: 700;
 }
