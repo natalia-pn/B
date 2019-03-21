@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import logo from '../logo.png';
 import PropTypes from 'prop-types';
 
 class BookCard extends Component {
@@ -8,9 +9,14 @@ class BookCard extends Component {
         return(
             <Fragment>
                 <li className="Book__card">
-                    <div className="Action-buttons__container">
-                        <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i class="fas fa-pen"></i></button>
-                        <button type="button" className="Delete-button" value={id} onClick={removeBook}><i class="fas fa-trash-alt"></i></button>
+                    <div className="Book-top__container">
+                        <div className="Book__logo-container">
+                            <img className="Book__logo"  src={logo} alt="logo"></img>
+                        </div>
+                        <div className="Action-buttons__container">
+                            <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i class="fas fa-pen"></i></button>
+                            <button type="button" className="Delete-button" value={id} onClick={removeBook}><i class="fas fa-trash-alt"></i></button>
+                        </div>
                     </div>
 
                     <div className="Book__info">

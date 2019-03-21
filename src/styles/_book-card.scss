@@ -1,13 +1,23 @@
 .Book__card {
     list-style: none;
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     background-color: $white;
     box-shadow: 5px 10px 13px $dark-blue;
     margin: 0 10px 15px 10px;
     border-radius: 8px;
+
+    // @media all and (min-width:600px) {
+       
+    // }
+}
+
+.Book__logo {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
 }
 
 .Action-buttons__container {
@@ -30,7 +40,7 @@
     // flex-direction: column;
     // align-items: center;
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .Book__title {
@@ -47,7 +57,7 @@
 .Book__genre {
     color: $fucsia;
     font-weight: 700;
-    font-size: 8px;
+    font-size: 13px;
 }
 
 .Book__price {
