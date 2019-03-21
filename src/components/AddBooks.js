@@ -22,7 +22,7 @@ class AddBooks extends Component {
                     <input type="text" onKeyUp={getPriceValue}/> 
                 </form>
                 <div className="Send-button__container">
-                   <SubmitButton submitBook={submitBook}/>
+                   <SubmitButton action={submitBook}/>
                 </div>
             </div>
         );   

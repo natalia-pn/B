@@ -5,6 +5,8 @@ import AddBooks from './components/AddBooks';
 import ShowBooks from './components/ShowBooks';
 import Menu from './components/Menu';
 import { Route, Switch } from 'react-router-dom';
+import UpdateBooksModal from './components/UpdateBooksModal';
+import SubmitButton from './components/SubmitButton';
 
 let booksList= [
   {
@@ -41,9 +43,19 @@ class App extends Component {
       nameValue: '',
       genreValue: '', 
       booksArray: booksList,
+      bookToUpdate: {},
+      isOpen: false,
+
+      formDefaultValues: {
+        title: '',
+        author: '',
+        genre: '',
+        price: ''
+      }
     }
 
     this.form = React.createRef();
+    // this.updateform = React.createRef();
 
     this.getTitleValue = this.getTitleValue.bind(this);
     this.getAuthorValue = this.getAuthorValue.bind(this);
@@ -54,31 +66,47 @@ class App extends Component {
     this.getSearchGenre = this.getSearchGenre.bind(this);
     this.filterBooks = this.filterBooks.bind(this);
     this.removeBook = this.removeBook.bind(this);
+    this.updateBooksWindow = this.updateBooksWindow.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.updateBook = this.updateBook.bind(this);
   }
  
 
   getTitleValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, title: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, title: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
+    console.log(bookToUpdate  )
   }
 
   getAuthorValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, author: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, author: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
+    console.log(bookToUpdate  )
   }
 
   getGenreValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, genre: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, genre: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
+    console.log(bookToUpdate  )
   }
 
   getPriceValue(e) {
-    const { formInfo } = this.state;
+    const { formInfo, bookToUpdate } = this.state;
     const newFormInfo = { ...formInfo, price: e.currentTarget.value };
-    this.setState({ formInfo: newFormInfo });
+    const updatedBook = { ...bookToUpdate, price: e.currentTarget.value };
+
+    this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
+    console.log(bookToUpdate)
+
   }
 
   submitBook(e) {
@@ -95,10 +123,26 @@ class App extends Component {
    this.form.current.reset();
   }
 
+  updateBook(e) {
+    e.preventDefault();
+    const buttonValue = e.currentTarget.id;
+    const { bookToUpdate } = this.state;
+  
+    for (const book of booksList) {
+      if(parseInt(buttonValue) === book.id) {
+        const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
+
+        booksList[index] = bookToUpdate;
+      }
+    }
+    this.setState({booksArray: booksList})
+    console.log(this.state.booksArray)
+  }
+
   getSearchName(e) {
     const nameValue = e.currentTarget.value;
     this.setState({
-      nameValue: nameValue
+      nameValue: nameValue, 
     })
   }
 
@@ -128,10 +172,32 @@ class App extends Component {
     }
     this.setState({booksArray: booksList})
   }
-    
+
+  updateBooksWindow(e) {
+    const buttonValue = e.currentTarget.value;
+
+    for (const book of booksList) {
+      if(parseInt(buttonValue) === book.id) {
+        const index = booksList.findIndex(x => x.id  === parseInt(buttonValue));
+        const book = booksList[index];
+ 
+        this.setState({bookToUpdate: book})
+      }
+    }
+    this.toggleModal();
+  }
+
+  toggleModal() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+  
   render() {
 
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook } = this;
+
+    const { bookToUpdate } = this.state;
 
     return (
       <div className="App">
@@ -150,12 +216,34 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook}/>
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow}/>
               )}/>
               <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form}/>)}/>
             </Fragment>
           </Switch>
         </main>
+
+        <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
+          <div className="Form__container">
+            <form className="Add-books__form">
+                <label className="Form__title-label">Title: </label>
+                <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 
+
+                <label className="Form__author-label">Author: </label>
+                <input type="text" onKeyUp={getAuthorValue} defaultValue={bookToUpdate.author}/> 
+
+                <label className="Form__genre-label">Genre: </label>
+                <input type="text" onKeyUp={getGenreValue} defaultValue={bookToUpdate.genre}/> 
+
+                <label className="Form__price-label">Price: </label>
+                <input type="text" onKeyUp={getPriceValue} defaultValue={bookToUpdate.price}/> 
+            </form>
+
+            <div className="Send-button__container">
+                <SubmitButton action={updateBook} id={bookToUpdate.id} />
+            </div>
+          </div>
+        </UpdateBooksModal>
       </div>
     );
   }
