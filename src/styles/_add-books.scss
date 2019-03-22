@@ -1,0 +1,59 @@
+.Add-books__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 228px;
+    align-content: center;
+
+    @media all and (min-width:768px) {
+        font-size: 18px;
+           margin-top: 130px;
+    }
+}
+
+.Form__title-label, .Form__author-label, .Form__genre-label, .Form__price-label {
+
+    font-size: 14px;
+    font-weight: 700;
+    color: $fucsia;
+    margin-bottom: 10px;
+
+    @media all and (min-width:768px) {
+        font-size: 18px;
+    }
+   
+}
+
+.Form__title-input, .Form__author-input, .Form__genre-input, .Form__price-input {
+    height: 15px;
+    width: 330px;
+    border-radius: 15px;
+    outline: none;
+    margin-bottom: 20px;
+
+    @media all and (min-width:768px) {
+        height: 30px;
+        width: 600px;
+    }
+}
+
+.Send-button__container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.Send-books__button {
+    border-radius: 15px;
+    font-size: 14px; 
+    font-weight: 700;   
+    width: 75px;
+    height: 30px;
+    background-color: $dark-blue; 
+    color: $yellow;
+
+    @media all and (min-width:768px) {
+        width: 85px;
+        height: 40px;
+        font-size: 18px;       
+    }
+}

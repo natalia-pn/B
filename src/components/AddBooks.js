@@ -9,18 +9,19 @@ class AddBooks extends Component {
         return(
             <div className="Form__container">
                 <form className="Add-books__form" ref={form}>
-                    <label className="Form__title-label">Title: </label>
-                    <input type="text" onKeyUp={getTitleValue}/> 
+                    <label htmlFor="title" className="Form__title-label">Title </label>
+                    <input id="title" className="Form__title-input" type="text" onKeyUp={getTitleValue}/> 
 
-                    <label className="Form__author-label">Author: </label>
-                    <input type="text" onKeyUp={getAuthorValue}/> 
+                    <label htmlFor="author" className="Form__author-label">Author </label>
+                    <input id="author" className="Form__author-input" type="text" onKeyUp={getAuthorValue}/> 
 
-                    <label className="Form__genre-label">Genre: </label>
-                    <input type="text" onKeyUp={getGenreValue}/> 
+                    <label htmlFor="genre" className="Form__genre-label">Genre </label>
+                    <input id="genre" className="Form__genre-input" type="text" onKeyUp={getGenreValue}/> 
 
-                    <label className="Form__price-label">Price: </label>
-                    <input type="text" onKeyUp={getPriceValue}/> 
+                    <label htmlFor="price" className="Form__price-label">Price </label>
+                    <input id="price" className="Form__price-input" type="text" onKeyUp={getPriceValue}/> 
                 </form>
+
                 <div className="Send-button__container">
                    <SubmitButton action={submitBook}/>
                 </div>
