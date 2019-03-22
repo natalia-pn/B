@@ -53,6 +53,10 @@
     width: 300px;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media all and (min-width:768px) {
+        width: 800px;
+   }
 }
 
 

@@ -12,6 +12,7 @@
 
     @media all and (min-width:768px) {
         height: 105px;
+        margin-bottom: 45px;
     }
 }
 
@@ -45,7 +46,7 @@
 .App__menu {
     display: flex;
     margin: 50px 0 0;
-    width: 170px;
+    width: 180px;
     justify-content: flex-end; 
 
     @media all and (min-width:768px) {
