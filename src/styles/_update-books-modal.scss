@@ -1,0 +1,72 @@
+
+// .backdrop {
+    //   position: 'relative';
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+     
+    //   padding: 50;
+    //   width: 100vw;
+    //   height: 100vh;
+    //   background-color: pink;
+
+   
+
+    .Modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50vw;
+        max-width: 100%;
+        height: 70vh;
+        max-height: 100%;
+        background-color: $blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .Modal .Form__container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        //   margin: 0;
+        height: 300px;
+        width: 600px;
+        background-color: pink;
+
+      }
+
+      .Modal .Add-books__form {
+          width: 600px;
+          background-color: green;
+      }
+
+      .Modal__close-button-container {
+        align-self: flex-end;
+        background-color: red;
+      }
+
+    .Modal__close-button {
+       outline: none;
+       border: none;
+       background-color: $blue;
+     
+}
+
+.fas{
+    font-size: 20px;
+
+}
+
+
+
+
+    
+
+
+    

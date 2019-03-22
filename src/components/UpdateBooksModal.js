@@ -10,15 +10,16 @@ class UpdateBooksModal extends Component {
 
     
     return (
-        <div className="backdrop">
-            <div className="modal">
-                {this.props.children}
+        <div className="Backdrop">
+            <div className="Modal">
+              <div className="Modal__close-button-container">
+                <button className="Modal__close-button"onClick={this.props.onClose}><i class="fas fa-times"></i>
+                      </button>
+              </div>
 
-                <div className="footer">
-                    <button onClick={this.props.onClose}>
-                    Close
-                    </button>
-                </div>
+              {this.props.children}
+
+                
             </div>
         </div>
     );

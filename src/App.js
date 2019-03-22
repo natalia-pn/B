@@ -233,17 +233,17 @@ class App extends Component {
         <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
           <div className="Form__container">
             <form className="Add-books__form">
-                <label className="Form__title-label">Title: </label>
-                <input type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 
+                <label htmlFor="title" className="Form__title-label">Title: </label>
+                <input id="title" className="Form__title-input" type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 
 
-                <label className="Form__author-label">Author: </label>
-                <input type="text" onKeyUp={getAuthorValue} defaultValue={bookToUpdate.author}/> 
+                <label htmlFor="author" className="Form__author-label">Author: </label>
+                <input type="text" id="author" className="Form__author-input" onKeyUp={getAuthorValue} defaultValue={bookToUpdate.author}/> 
 
-                <label className="Form__genre-label">Genre: </label>
-                <input type="text" onKeyUp={getGenreValue} defaultValue={bookToUpdate.genre}/> 
+                <label htmlFor="genre" className="Form__genre-label">Genre: </label>
+                <input id="genre" className="Form__genre-input" type="text" onKeyUp={getGenreValue} defaultValue={bookToUpdate.genre}/> 
 
-                <label className="Form__price-label">Price: </label>
-                <input type="text" onKeyUp={getPriceValue} defaultValue={bookToUpdate.price}/> 
+                <label htmlFor="price" className="Form__price-label">Price: </label>
+                <input id="price" className="Form__price-input" type="text" onKeyUp={getPriceValue} defaultValue={bookToUpdate.price}/> 
             </form>
 
             <div className="Send-button__container">
