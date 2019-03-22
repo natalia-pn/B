@@ -142,6 +142,7 @@ class App extends Component {
       }
     }
     this.setState({booksArray: booksList})
+    this.toggleModal();
     console.log(this.state.booksArray)
   }
 
@@ -232,6 +233,10 @@ class App extends Component {
 
         <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
           <div className="Form__container">
+            <div className="Modal__close-button-container">
+              <button className="Modal__close-button" onClick={this.toggleModal}><i className="fas fa-times"></i></button>
+            </div>
+
             <form className="Add-books__form">
                 <label htmlFor="title" className="Form__title-label">Title: </label>
                 <input id="title" className="Form__title-input" type="text" onKeyUp={getTitleValue} defaultValue={bookToUpdate.title} title={bookToUpdate.title}/> 

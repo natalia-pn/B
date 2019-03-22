@@ -12,14 +12,7 @@ class UpdateBooksModal extends Component {
     return (
         <div className="Backdrop">
             <div className="Modal">
-              <div className="Modal__close-button-container">
-                <button className="Modal__close-button"onClick={this.props.onClose}><i class="fas fa-times"></i>
-                      </button>
-              </div>
-
-              {this.props.children}
-
-                
+              {this.props.children} 
             </div>
         </div>
     );

@@ -14,8 +14,8 @@ class BookCard extends Component {
                             <img className="Book__logo"  src={logo} alt="logo"></img>
                         </div>
                         <div className="Action-buttons__container">
-                            <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i class="fas fa-pen"></i></button>
-                            <button type="button" className="Delete-button" value={id} onClick={removeBook}><i class="fas fa-trash-alt"></i></button>
+                            <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i className="fas fa-pen"></i></button>
+                            <button type="button" className="Delete-button" value={id} onClick={removeBook}><i className="fas fa-trash-alt"></i></button>
                         </div>
                     </div>
 
