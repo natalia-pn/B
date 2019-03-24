@@ -228,12 +228,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App__header">
-          <div className="Logo__container">
-            <img className="Logo"  src={logo} alt="logo"></img>
-            <p className="App__name">Beezy bookstore</p>
-          </div>
-          <div className="App__menu">
-            <Menu toggleSubmitMessage={toggleSubmitMessage} />
+          <div className="Header-content__container">
+            <div className="Logo__container">
+              <img className="Logo"  src={logo} alt="logo"></img>
+              <p className="App__name">Beezy bookstore</p>
+            </div>
+            
+            <div className="App__menu">
+              <Menu toggleSubmitMessage={toggleSubmitMessage} />
+            </div>
           </div>
         </header>
 

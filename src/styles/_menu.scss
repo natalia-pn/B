@@ -4,16 +4,31 @@
 
 .App__header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    // align-items: center;
     background-color: $dark-blue;
-    height: 85px;
+    // height: 85px;
     width: 100vw;
 
     @media all and (min-width:768px) {
         height: 105px;
         margin-bottom: 45px;
     }
+}
+
+.Header-content__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // height: 85px;
+    width: 100vw;
+
+    @media all and (min-width:768px) {
+        height: 105px;
+        width: 1550px;
+        margin-bottom: 45px;
+    }
+
 }
 
 .Logo__container {
@@ -24,7 +39,7 @@
 .Logo {
     width: 30px;
     height: 30px;
-    margin-left: 15px;
+    margin-left: 20px;
 
     @media all and (min-width:768px) {
         width: 50px;
