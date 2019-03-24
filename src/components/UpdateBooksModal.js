@@ -8,13 +8,12 @@ class UpdateBooksModal extends Component {
       return null;
     }
 
-    
     return (
-        <div className="Backdrop">
-            <div className="Modal">
-              {this.props.children} 
-            </div>
+      <div className="Backdrop">
+        <div className="Modal">
+          {this.props.children} 
         </div>
+      </div>
     );
   }
 }

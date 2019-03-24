@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 class AddBooks extends Component {
     render() {
-        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitMessage } = this.props;
+        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue,  submitMessage } = this.props;
+
         return(
             <div className="Form__container">
                 <form className="Add-books__form" ref={form}>
@@ -39,7 +40,8 @@ AddBooks.propTypes = {
     getTitleValue: PropTypes.func,
     getAuthorValue: PropTypes.func,
     getGenreValue: PropTypes.func,
-    getPriceValue: PropTypes.func
+    getPriceValue: PropTypes.func,
+    submitMessage: PropTypes.string
     }
 
 export default AddBooks;

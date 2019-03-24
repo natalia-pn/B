@@ -13,6 +13,7 @@ class BookCard extends Component {
                         <div className="Book__logo-container">
                             <img className="Book__logo"  src={logo} alt="logo"></img>
                         </div>
+                        
                         <div className="Action-buttons__container">
                             <button type="button" className="Edit-button" value={id} onClick={updateBooksWindow}><i className="fas fa-pen"></i></button>
                             <button type="button" className="Delete-button" value={id} onClick={removeBook}><i className="fas fa-trash-alt"></i></button>
@@ -37,7 +38,8 @@ BookCard.propTypes = {
     author: PropTypes.string,
     genre: PropTypes.string,
     price: PropTypes.string,
-    removeBook: PropTypes.func
+    removeBook: PropTypes.func,
+    updateBooksWindow: PropTypes.func
 }
 
 export default BookCard;

@@ -8,7 +8,6 @@ import { Route, Switch, NavLink } from 'react-router-dom';
 import UpdateBooksModal from './components/UpdateBooksModal';
 import SubmitButton from './components/SubmitButton';
 
-
 let booksList= [
   {
     title: 'El calor tan cercano',
@@ -53,7 +52,6 @@ class App extends Component {
       bookToUpdate: {},
       isOpen: false,
       submitMessage: 'Hidden'
-
     }
 
     this.form = React.createRef();
@@ -74,47 +72,47 @@ class App extends Component {
     this.toggleSubmitMessage = this.toggleSubmitMessage.bind(this);
   }
  
-
   getTitleValue(e) {
     const { formInfo, bookToUpdate } = this.state;
+
     const newFormInfo = { ...formInfo, title: e.currentTarget.value };
     const updatedBook = { ...bookToUpdate, title: e.currentTarget.value };
 
     this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
-    console.log(bookToUpdate  )
   }
 
   getAuthorValue(e) {
     const { formInfo, bookToUpdate } = this.state;
+
     const newFormInfo = { ...formInfo, author: e.currentTarget.value };
     const updatedBook = { ...bookToUpdate, author: e.currentTarget.value };
 
     this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook});
-    console.log(bookToUpdate  )
   }
 
   getGenreValue(e) {
     const { formInfo, bookToUpdate } = this.state;
+
     const newFormInfo = { ...formInfo, genre: e.currentTarget.value };
     const updatedBook = { ...bookToUpdate, genre: e.currentTarget.value };
 
     this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
-    console.log(bookToUpdate  )
   }
 
   getPriceValue(e) {
     const { formInfo, bookToUpdate } = this.state;
+
     const newFormInfo = { ...formInfo, price: e.currentTarget.value };
     const updatedBook = { ...bookToUpdate, price: e.currentTarget.value };
 
     this.setState({ formInfo: newFormInfo, bookToUpdate: updatedBook });
-    console.log(bookToUpdate)
-
   }
 
   submitBook(e) {
     e.preventDefault();
+
     booksList.push(this.state.formInfo);
+
     this.setState({
       formInfo: {
         title: '',
@@ -135,6 +133,7 @@ class App extends Component {
 
   updateBook(e) {
     e.preventDefault();
+
     const buttonValue = e.currentTarget.id;
     const { bookToUpdate } = this.state;
   
@@ -146,12 +145,13 @@ class App extends Component {
       }
     }
     this.setState({booksArray: booksList})
+
     this.toggleModal();
-    console.log(this.state.booksArray)
   }
 
   getSearchName(e) {
     const nameValue = e.currentTarget.value;
+
     this.setState({
       nameValue: nameValue, 
     })
@@ -159,6 +159,7 @@ class App extends Component {
 
   getSearchGenre(e) {
     const genreValue = e.currentTarget.value;
+
     this.setState({
       genreValue: genreValue
     })
@@ -170,12 +171,9 @@ class App extends Component {
     // It creates a new array. The new set map function allows unique values in it. The kast map returns the actual book from the original booksList array.
 
     const uniqueBooks = Array.from(new Set(booksArray.map(book => book.title)))
-     .map(title => {
-       return booksArray.find(book => book.title === title)
-     })
-
-
-     console.log(booksArray)
+      .map(title => {
+        return booksArray.find(book => book.title === title)
+      })
 
       return uniqueBooks
       .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
@@ -184,8 +182,6 @@ class App extends Component {
 
   removeBook(e) {
     const buttonValue = e.currentTarget.value;
-
-    console.log('button value', buttonValue)
 
     for (const book of booksList) {
       if(parseInt(buttonValue) === book.id) {
@@ -221,7 +217,6 @@ class App extends Component {
 }
   
   render() {
-
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage, toggleSubmitMessage } = this;
 
     const { bookToUpdate, submitMessage } = this.state;
@@ -250,6 +245,7 @@ class App extends Component {
                 getSearchName={getSearchName} 
                 getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage}/>
               )}/>
+              
               <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form} submitMessage={submitMessage}/>)}/>
             </Fragment>
           </Switch>

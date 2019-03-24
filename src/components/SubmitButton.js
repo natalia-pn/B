@@ -2,10 +2,9 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class submitButton extends Component {
-
     render() {
-        
         const { action, id } = this.props;
+
         return(
             <Fragment>
                 <label className="send-books__label"></label>
@@ -16,7 +15,8 @@ class submitButton extends Component {
 }
 
 submitButton.propTypes = {
-    action: PropTypes.func
+    action: PropTypes.func, 
+    id: PropTypes.number
 }
 
 export default submitButton;

@@ -45,7 +45,11 @@
 .Genre__field::placeholder, .Title__field::placeholder  {
     padding-left: 15px;
     color: $yellow;
-    font-size: 13px;
+    font-size: 8px;
+
+    @media all and (min-width:768px) {
+        font-size: 13px;
+    }
 }
 
 .No-results-message__container {
@@ -57,14 +61,10 @@
     font-size: 13px;
     color: $fucsia;
 
-
     @media all and (min-width:768px) {
-        font-size: 20px;
-        color: $fucsia;
-              
+        font-size: 20px;    
     }
 }
-
 
 .Go-back-button {
     border-radius: 15px;
@@ -83,13 +83,10 @@
     }
 }
 
-
 .go-back-link {
     text-decoration: none;
     color: $dark-blue;
 }
-
-
 
 .Books__container {
     display: flex;

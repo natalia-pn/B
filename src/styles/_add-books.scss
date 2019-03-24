@@ -11,7 +11,6 @@
 }
 
 .Form__title-label, .Form__author-label, .Form__genre-label, .Form__price-label {
-
     font-size: 14px;
     font-weight: 700;
     color: $fucsia;
@@ -20,7 +19,6 @@
     @media all and (min-width:768px) {
         font-size: 18px;
     }
-   
 }
 
 .Form__title-input, .Form__author-input, .Form__genre-input, .Form__price-input {
@@ -66,9 +64,7 @@
 
     @media all and (min-width:768px) {
         font-size: 20px;
-    
-    }
-    
+    }  
 }
 
 .Hidden {

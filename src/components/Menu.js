@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Menu extends Component {
     render() {
-
         const { toggleSubmitMessage } = this.props;
+
         return(
             <Fragment>
                 <NavLink exact to="/" className="Show-books__link" activeClassName="is-active" onClick={toggleSubmitMessage}><p className="Show-books">Show books</p>
@@ -16,4 +17,9 @@ class Menu extends Component {
     }
 }
 
+Menu.propTypes = {
+    toggleSubmitMessage: PropTypes.func
+}
+
 export default Menu;
+
