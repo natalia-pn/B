@@ -61,7 +61,6 @@ class App extends Component {
     }
 
     this.form = React.createRef();
-    // this.updateform = React.createRef();
 
     this.getTitleValue = this.getTitleValue.bind(this);
     this.getAuthorValue = this.getAuthorValue.bind(this);
@@ -75,6 +74,7 @@ class App extends Component {
     this.updateBooksWindow = this.updateBooksWindow.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.updateBook = this.updateBook.bind(this);
+    this.refreshPage = this.refreshPage.bind(this);
   }
  
 
@@ -199,10 +199,14 @@ class App extends Component {
       isOpen: !this.state.isOpen
     })
   }
+
+  refreshPage(){ 
+    window.location.reload(); 
+}
   
   render() {
 
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage } = this;
 
     const { bookToUpdate } = this.state;
 
@@ -224,7 +228,7 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow}/>
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage}/>
               )}/>
               <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form}/>)}/>
             </Fragment>

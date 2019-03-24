@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SubmitButton from './SubmitButton';
 import PropTypes from 'prop-types';
 
-
 class AddBooks extends Component {
     render() {
         const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue } = this.props;

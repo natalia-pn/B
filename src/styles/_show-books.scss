@@ -48,6 +48,17 @@
     font-size: 13px;
 }
 
+.No-results-message {
+    font-size: 20px;
+    color: $fucsia;
+}
+
+.No-results-message__container
+.go-back-link {
+    text-decoration: none;
+    color: $dark-blue;
+}
+
 .Books__container {
     display: flex;
     width: 300px;
