@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class AddBooks extends Component {
     render() {
-        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue } = this.props;
+        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitMessage } = this.props;
         return(
             <div className="Form__container">
                 <form className="Add-books__form" ref={form}>
@@ -23,6 +23,10 @@ class AddBooks extends Component {
 
                 <div className="Send-button__container">
                    <SubmitButton action={submitBook}/>
+                </div>
+
+                <div className={`Submission-message__container ${submitMessage}`}>
+                    <p className="Submission-message">The book was submitted successfully</p>
                 </div>
             </div>
         );   
