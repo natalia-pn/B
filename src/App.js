@@ -70,6 +70,7 @@ class App extends Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.updateBook = this.updateBook.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
+    this.toggleSubmitMessage = this.toggleSubmitMessage.bind(this);
   }
  
 
@@ -125,8 +126,10 @@ class App extends Component {
    this.form.current.reset();
 
    this.setState({submitMessage: 'Visible'});
+  }
 
-  
+  toggleSubmitMessage() {
+    this.setState({submitMessage: 'Hidden'});
   }
 
   updateBook(e) {
@@ -218,7 +221,7 @@ class App extends Component {
   
   render() {
 
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage, toggleSubmitMessage } = this;
 
     const { bookToUpdate, submitMessage } = this.state;
 
@@ -230,7 +233,7 @@ class App extends Component {
             <p className="App__name">Beezy bookstore</p>
           </div>
           <div className="App__menu">
-            <Menu />
+            <Menu toggleSubmitMessage={toggleSubmitMessage} />
           </div>
         </header>
 
