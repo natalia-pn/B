@@ -4,9 +4,10 @@ import './styles/App.scss';
 import AddBooks from './components/AddBooks';
 import ShowBooks from './components/ShowBooks';
 import Menu from './components/Menu';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import UpdateBooksModal from './components/UpdateBooksModal';
 import SubmitButton from './components/SubmitButton';
+
 
 let booksList= [
   {
@@ -230,10 +231,11 @@ class App extends Component {
         <header className="App__header">
           <div className="Header-content__container">
             <div className="Logo__container">
-              <img className="Logo"  src={logo} alt="logo"></img>
+              <NavLink to="/" className="Home-link"><img className="Logo"  src={logo} alt="logo"></img></NavLink>
+              
               <p className="App__name">Beezy bookstore</p>
             </div>
-            
+
             <div className="App__menu">
               <Menu toggleSubmitMessage={toggleSubmitMessage} />
             </div>
