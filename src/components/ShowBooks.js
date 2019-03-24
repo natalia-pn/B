@@ -14,7 +14,7 @@ class ShowBooks extends Component {
                 <div className="No-results-message__container">
                     <p className="No-results-message">There are no results that match your search</p>
 
-                    <button type="button" onClick={ refreshPage }><Link to="/" className="go-back-link">Take me back</Link></button> 
+                    <button className="Go-back-button" type="button" onClick={ refreshPage }><Link to="/" className="go-back-link"></Link>Take me back</button> 
                 </div>
             )
         } else {

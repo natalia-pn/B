@@ -48,16 +48,48 @@
     font-size: 13px;
 }
 
-.No-results-message {
-    font-size: 20px;
-    color: $fucsia;
+.No-results-message__container {
+    text-align: center;
+    margin-top: 60px;
 }
 
-.No-results-message__container
+.No-results-message {
+    font-size: 13px;
+    color: $fucsia;
+
+
+    @media all and (min-width:768px) {
+        font-size: 20px;
+        color: $fucsia;
+              
+    }
+}
+
+
+.Go-back-button {
+    border-radius: 15px;
+    font-size: 12px; 
+    font-weight: 700;   
+    width: 105px;
+    height: 28px;
+    background-color: $blue; 
+    color: $yellow;
+    outline: none;
+
+    @media all and (min-width:768px) {
+        width: 125px;
+        height: 35px;
+        font-size: 16px;       
+    }
+}
+
+
 .go-back-link {
     text-decoration: none;
     color: $dark-blue;
 }
+
+
 
 .Books__container {
     display: flex;
@@ -69,51 +101,6 @@
         width: 100vw;
    }
 }
-
-
-
-
-// .Search-fields__container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-// }
-
-// .Genre__field {
-//     width: 300px;
-//     height: 25px;
-//     margin-top: 40px;
-//     margin-bottom: 20px;
-//     border-radius: 15px;
-//     border: none;
-//     outline: none;
-//     background-color: $blue;
-// }
-
-// .Title__field {
-//     width: 300px;
-//     height: 25px;
-//     margin-bottom: 80px;
-//     border-radius: 15px;
-//     border: none;
-//     outline: none;
-//     background-color: $blue;
-   
-// }
-
-// .Genre__field::placeholder, .Title__field::placeholder  {
-//     padding-left: 15px;
-//     color: $yellow;
-// }
-
-
-
-
-
-
-
-
-
 
 
 
