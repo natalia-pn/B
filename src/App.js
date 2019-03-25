@@ -51,7 +51,8 @@ class App extends Component {
       booksArray: booksList,
       bookToUpdate: {},
       isOpen: false,
-      submitMessage: 'Hidden'
+      submitMessage: 'Hidden',
+      errorMessage:'Hidden'
     }
 
     this.form = React.createRef();
@@ -111,24 +112,41 @@ class App extends Component {
   submitBook(e) {
     e.preventDefault();
 
-    booksList.push(this.state.formInfo);
+    const { formInfo } = this.state;
 
-    this.setState({
-      formInfo: {
-        title: '',
-        author: '',
-        genre: '',
-        price: ''
-      }, 
-      booksArray: booksList
-   })
-   this.form.current.reset();
+     if (formInfo.title !== '' && formInfo.author !== '' && formInfo.genre !== '' && formInfo.price !== ''  ) {
 
-   this.setState({submitMessage: 'Visible'});
+        booksList.push(this.state.formInfo);
+    
+        this.setState({
+          formInfo: {
+            title: '',
+            author: '',
+            genre: '',
+            price: ''
+          }, 
+          submitMessage: 'Visible',
+          booksArray: booksList
+        })
+          this.form.current.reset();
+
+        } else {
+          this.setState({
+            formInfo: {
+              title: '',
+              author: '',
+              genre: '',
+              price: ''
+            }, 
+            errorMessage: 'Visible',
+          })
+  
+          this.form.current.reset();
+        }
   }
 
   toggleSubmitMessage() {
-    this.setState({submitMessage: 'Hidden'});
+    this.setState({submitMessage: 'Hidden',  errorMessage: 'Hidden'});
   }
 
   updateBook(e) {
@@ -219,7 +237,7 @@ class App extends Component {
   render() {
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage, toggleSubmitMessage } = this;
 
-    const { bookToUpdate, submitMessage } = this.state;
+    const { bookToUpdate, submitMessage, errorMessage } = this.state;
 
     return (
       <div className="App">
@@ -246,7 +264,7 @@ class App extends Component {
                 getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage}/>
               )}/>
               
-              <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form} submitMessage={submitMessage}/>)}/>
+              <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form} submitMessage={submitMessage} errorMessage={errorMessage}/>)}/>
             </Fragment>
           </Switch>
         </main>

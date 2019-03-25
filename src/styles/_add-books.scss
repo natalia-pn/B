@@ -67,6 +67,17 @@
     }  
 }
 
+.Error-message {
+    color: $dark-blue;
+    font-size: 13px;
+    text-align: center; 
+
+    @media all and (min-width:768px) {
+        font-size: 20px;
+    } 
+
+}
+
 .Hidden {
     display: none;
 }

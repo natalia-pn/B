@@ -4,11 +4,16 @@ import PropTypes from 'prop-types';
 
 class AddBooks extends Component {
     render() {
-        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue,  submitMessage } = this.props;
+        const { form, submitBook, getTitleValue, getAuthorValue, getGenreValue, getPriceValue,  submitMessage, errorMessage } = this.props;
 
         return(
             <div className="Form__container">
                 <form className="Add-books__form" ref={form}>
+
+                    <div className={`Error-message__container ${errorMessage}`}>
+                        <p className="Error-message">All fields are mandatory</p>
+                    </div>
+
                     <label htmlFor="title" className="Form__title-label">Title </label>
                     <input id="title" className="Form__title-input" type="text" onKeyUp={getTitleValue}/> 
 
@@ -41,7 +46,8 @@ AddBooks.propTypes = {
     getAuthorValue: PropTypes.func,
     getGenreValue: PropTypes.func,
     getPriceValue: PropTypes.func,
-    submitMessage: PropTypes.string
+    submitMessage: PropTypes.string,
+    errorMessage: PropTypes.string
     }
 
 export default AddBooks;
