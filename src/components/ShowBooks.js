@@ -5,14 +5,17 @@ import PropTypes from 'prop-types';
 
 class ShowBooks extends Component {
     render() {
-        const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow,      refreshPage } = this.props;
+        const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow,      refreshPage, loadingMessage, noResultsMessage } = this.props;
 
         if (filterBooks.length === 0 ) {
+           
             return (
                 <div className="No-results-message__container">
-                    <p className="No-results-message">There are no results that match your search</p>
+                    <p className={`No-results-message ${noResultsMessage}`}>There are no results that match your search</p>
+
+                    <p className={`Loading-message ${loadingMessage}`}>Loading</p>
                     
-                    <button className="Go-back-button" type="button" onClick={ refreshPage }><NavLink to="/" className="Go-back-link"></NavLink>Take me back</button> 
+                    <button className={`Go-back-button ${noResultsMessage}`} type="button" onClick={ refreshPage }><NavLink to="/" className="Go-back-link"></NavLink>Take me back</button> 
                 </div>
             )
 

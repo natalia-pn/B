@@ -48,11 +48,13 @@ class App extends Component {
       },
       nameValue: '',
       genreValue: '', 
-      booksArray: booksList,
+      booksArray: [],
       bookToUpdate: {},
       isOpen: false,
       submitMessage: 'Hidden',
-      errorMessage:'Hidden'
+      errorMessage:'Hidden',
+      loadingMessage: 'Visible',
+      noResultsMessage: 'Hidden',
     }
 
     this.form = React.createRef();
@@ -71,6 +73,23 @@ class App extends Component {
     this.updateBook = this.updateBook.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
     this.toggleSubmitMessage = this.toggleSubmitMessage.bind(this);
+    this.reassignBooksArray = this.reassignBooksArray.bind(this);
+  }
+
+  componentDidMount() {
+    setTimeout(this.reassignBooksArray, 5000);
+  }
+
+  reassignBooksArray() {
+    if(booksList.length === 0) {
+      this.setState({booksArray: booksList, loadingMessage: 'Hidden', noResultsMessage: 'Hidden'})
+    } else {
+      this.setState({booksArray: booksList, loadingMessage: 'Hidden', noResultsMessage: 'Visible'})
+    }
+  }
+
+  showNoResultsMessage() {
+    this.setState({noResultsMessage: 'Visible'})
   }
  
   getTitleValue(e) {
@@ -186,17 +205,21 @@ class App extends Component {
 
   filterBooks() {
     const { genreValue, nameValue, booksArray} = this.state;
+
+    
  
-    // It creates a new array. The new set map function allows unique values in it. The kast map returns the actual book from the original booksList array.
+    // It creates a new array. The new set map function allows unique values in it. Last map returns the actual book from the original booksList array.
 
     const uniqueBooks = Array.from(new Set(booksArray.map(book => book.title)))
       .map(title => {
         return booksArray.find(book => book.title === title)
       })
 
+    
       return uniqueBooks
       .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
       .filter(book => book.title.toUpperCase().includes(nameValue.toUpperCase()));
+      
   }
 
   removeBook(e) {
@@ -238,7 +261,7 @@ class App extends Component {
   render() {
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage, toggleSubmitMessage } = this;
 
-    const { bookToUpdate, submitMessage, errorMessage } = this.state;
+    const { bookToUpdate, submitMessage, errorMessage, loadingMessage, noResultsMessage, noFilterResultsMessage } = this.state;
 
     return (
       <div className="App">
@@ -262,7 +285,8 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage}/>
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage} loadingMessage={loadingMessage} noResultsMessage={noResultsMessage} noFilterResultsMessage={noFilterResultsMessage} 
+                />
               )}/>
               
               <Route path="/AddBooks" render={()=>(<AddBooks getTitleValue={getTitleValue}getAuthorValue={getAuthorValue} getGenreValue={getGenreValue} getPriceValue={getPriceValue} submitBook={submitBook} form={form} submitMessage={submitMessage} errorMessage={errorMessage}/>)}/>
