@@ -3,9 +3,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:$blue;
+    background-color:$white;
     width: 800px;
     height: 100vh;
+    margin-top: 94px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +14,9 @@
 
     @media all and (min-width:768px) {
         width: 100vw;
+        height: 100vh;
+        margin-top: 105px;
+
     }
 }
 
@@ -21,33 +25,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $blue;
-    height: 600px;
+    background-color: $white;
+    box-shadow: 5px 10px 13px $dark-blue;
+    border-radius: 8px;
+    height: 500px;
     width: 400px;
+    margin-bottom: 94px;
    
     @media all and (min-width:768px) {
-    width: 600px;
+    width: 700px;
+    height: 600px;
+    border-radius: 15px;
+    margin-bottom: 105px;
     }
 }
 
 .Modal .Add-books__form {
     margin: 0;
+    display: flex;
+    justify-content: center;
 
     @media all and (min-width:768px) {
-        width: 600px;
+        width: 610px;
     }
 }
 
 .Modal__close-button-container {
     align-self: flex-end;
     width: 50px;
-    margin:0 10px 40px 0;
+    margin-bottom: 40px;
+
+
 }
 
 .Modal__close-button {
     outline: none;
     border: none;
-    background-color: $blue;
 }
 
 .fas{
@@ -60,11 +73,7 @@
 
 .Modal .Send-button__container {
     align-self: flex-end;  
-    margin-right: 35px; 
-
-    @media all and (min-width:768px) {
-            margin-right: 0; 
-    }
+    margin-right: 30px; 
 }
 
 
