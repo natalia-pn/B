@@ -126,6 +126,7 @@ class App extends Component {
             price: ''
           }, 
           submitMessage: 'Visible',
+          errorMessage: 'Hidden',
           booksArray: booksList
         })
           this.form.current.reset();

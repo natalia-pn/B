@@ -9,11 +9,6 @@ class AddBooks extends Component {
         return(
             <div className="Form__container">
                 <form className="Add-books__form" ref={form}>
-
-                    <div className={`Error-message__container ${errorMessage}`}>
-                        <p className="Error-message">All fields are mandatory</p>
-                    </div>
-
                     <label htmlFor="title" className="Form__title-label">Title </label>
                     <input id="title" className="Form__title-input" type="text" onKeyUp={getTitleValue}/> 
 
@@ -26,6 +21,10 @@ class AddBooks extends Component {
                     <label htmlFor="price" className="Form__price-label">Price </label>
                     <input id="price" className="Form__price-input" type="text" onKeyUp={getPriceValue}/> 
                 </form>
+
+                <div className={`Error-message__container ${errorMessage}`}>
+                    <p className="Error-message">*All fields are required</p>
+                </div>
 
                 <div className="Send-button__container">
                    <SubmitButton action={submitBook}/>
