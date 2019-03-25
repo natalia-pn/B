@@ -7,7 +7,6 @@ class ShowBooks extends Component {
         const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow, loadingMessage, noResultsMessage } = this.props;
 
         if (filterBooks.length === 0 ) {
-           
             return (
                 <Fragment>
                     <div className={`Search-fields__container ${noResultsMessage}`}>
@@ -21,7 +20,7 @@ class ShowBooks extends Component {
                     <div className="No-results-message__container">
                         <p className={`No-results-message ${noResultsMessage}`}>There are no results that match your search</p>
                  
-                        <p className={`Loading-message ${loadingMessage}`}>Loading</p>
+                        <p className={`Loading-message ${loadingMessage}`}>Loading...</p>
                     </div>
                 </Fragment>
             )

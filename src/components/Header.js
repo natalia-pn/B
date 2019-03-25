@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import Menu from './Menu';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
     render() {
@@ -24,5 +25,9 @@ class Header extends Component {
     }
 }
 
+Header.propTypes = {
+    logo: PropTypes.string,
+    toggleSubmitMessage:PropTypes.func,
+}
 
 export default Header;

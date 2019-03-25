@@ -87,10 +87,6 @@ class App extends Component {
       this.setState({booksArray: booksList, loadingMessage: 'Hidden', noResultsMessage: 'Visible'})
     }
   }
-
-  showNoResultsMessage() {
-    this.setState({noResultsMessage: 'Visible'})
-  }
  
   getTitleValue(e) {
     const { formInfo, bookToUpdate } = this.state;
@@ -159,11 +155,11 @@ class App extends Component {
               price: ''
             }, 
             errorMessage: 'Visible',
+            submitMessage: 'Hidden'
           })
-  
           this.form.current.reset();
         }
-  }
+    }
 
   toggleSubmitMessage() {
     this.setState({submitMessage: 'Hidden',  errorMessage: 'Hidden'});
@@ -206,8 +202,6 @@ class App extends Component {
   filterBooks() {
     const { genreValue, nameValue, booksArray} = this.state;
 
-    
- 
     // It creates a new array. The new set map function allows unique values in it. Last map returns the actual book from the original booksList array.
 
     const uniqueBooks = Array.from(new Set(booksArray.map(book => book.title)))
@@ -215,11 +209,9 @@ class App extends Component {
         return booksArray.find(book => book.title === title)
       })
 
-    
       return uniqueBooks
       .filter(book => book.genre.toUpperCase().includes(genreValue.toUpperCase()))
       .filter(book => book.title.toUpperCase().includes(nameValue.toUpperCase()));
-      
   }
 
   removeBook(e) {
@@ -256,12 +248,12 @@ class App extends Component {
 
   refreshPage(){ 
     window.location.reload(); 
-}
+  }
   
   render() {
-    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, refreshPage, toggleSubmitMessage } = this;
+    const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, toggleSubmitMessage } = this;
 
-    const { bookToUpdate, submitMessage, errorMessage, loadingMessage, noResultsMessage, noFilterResultsMessage } = this.state;
+    const { bookToUpdate, submitMessage, errorMessage, loadingMessage, noResultsMessage } = this.state;
 
     return (
       <div className="App">
@@ -285,7 +277,7 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage} loadingMessage={loadingMessage} noResultsMessage={noResultsMessage} 
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} loadingMessage={loadingMessage} noResultsMessage={noResultsMessage} 
                 />
               )}/>
               

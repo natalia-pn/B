@@ -19,8 +19,6 @@ class UpdateBooksModal extends Component {
 }
 
 UpdateBooksModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  show: PropTypes.bool,
   children: PropTypes.node
 };
 
