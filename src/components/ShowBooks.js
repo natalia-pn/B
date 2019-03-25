@@ -1,22 +1,29 @@
 import React, { Component, Fragment } from 'react';
 import BookCard from './BookCard';
-import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ShowBooks extends Component {
     render() {
-        const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow,      refreshPage, loadingMessage, noResultsMessage } = this.props;
+        const { filterBooks, getSearchGenre, getSearchName, removeBook, updateBooksWindow, loadingMessage, noResultsMessage } = this.props;
 
         if (filterBooks.length === 0 ) {
            
             return (
-                <div className="No-results-message__container">
-                    <p className={`No-results-message ${noResultsMessage}`}>There are no results that match your search</p>
+                <Fragment>
+                    <div className={`Search-fields__container ${noResultsMessage}`}>
+                        <label className="Genre__label"></label>
+                        <input type="text" className="Genre__field" placeholder="Search books by genre" onKeyUp={getSearchGenre}/>
 
-                    <p className={`Loading-message ${loadingMessage}`}>Loading</p>
-                    
-                    <button className={`Go-back-button ${noResultsMessage}`} type="button" onClick={ refreshPage }><NavLink to="/" className="Go-back-link"></NavLink>Take me back</button> 
-                </div>
+                        <label className="Title__label"></label>
+                        <input type="text" className="Title__field" placeholder="Search books by title" onKeyUp={getSearchName}/>
+                    </div>
+
+                    <div className="No-results-message__container">
+                        <p className={`No-results-message ${noResultsMessage}`}>There are no results that match your search</p>
+                 
+                        <p className={`Loading-message ${loadingMessage}`}>Loading</p>
+                    </div>
+                </Fragment>
             )
 
         } else {
@@ -50,7 +57,6 @@ ShowBooks.propTypes = {
     getSearchName: PropTypes.func,
     removeBook: PropTypes.func,
     updateBooksWindow: PropTypes.func,
-    refreshPage:PropTypes.func
 }
 
 export default ShowBooks;

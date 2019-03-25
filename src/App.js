@@ -285,7 +285,7 @@ class App extends Component {
               <Route exact path="/" render={()=>(
                 <ShowBooks 
                 getSearchName={getSearchName} 
-                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage} loadingMessage={loadingMessage} noResultsMessage={noResultsMessage} noFilterResultsMessage={noFilterResultsMessage} 
+                getSearchGenre={getSearchGenre}  filterBooks= {filterBooks()} removeBook={removeBook} updateBooksWindow={updateBooksWindow} refreshPage={refreshPage} loadingMessage={loadingMessage} noResultsMessage={noResultsMessage} 
                 />
               )}/>
               
