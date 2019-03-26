@@ -7,7 +7,6 @@ a bookstore.
 The application provides the following features:
 
 - View/Create/Update/Delete books.
-- View/Create/Update/Delete genre.
 - Filter books by title or genre.
 
 This project is part of Beezy’s selection process. It has been created with Create React App and data is retrieved from an array, simulating the connection through an API.
