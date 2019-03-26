@@ -2,12 +2,21 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+.App__main-section {
+    padding-top: 94px;
+
+    @media all and (min-width:768px) {
+        padding-top: 105px;
+    } 
+}
+
 .App__header {
+    position: fixed;
     display: flex;
     justify-content: center;
     background-color: $dark-blue;
     width: 100vw;
-
+    
     @media all and (min-width:768px) {
         height: 105px;
         margin-bottom: 45px;
@@ -47,7 +56,7 @@
     margin-left: 5px;
     color: $white;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
 
     @media all and (min-width:768px) {
         font-size: 20px;
@@ -66,7 +75,7 @@
 }
 
 .Show-books__link, .Add-books__link {
-    font-size: 13px;
+    font-size: 12px;
     text-decoration: none;
     margin-right: 15px;
     color: $white;
