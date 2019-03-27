@@ -71,7 +71,6 @@ class App extends Component {
     this.updateBooksWindow = this.updateBooksWindow.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.updateBook = this.updateBook.bind(this);
-    this.refreshPage = this.refreshPage.bind(this);
     this.toggleSubmitMessage = this.toggleSubmitMessage.bind(this);
     this.reassignBooksArray = this.reassignBooksArray.bind(this);
   }
@@ -202,7 +201,7 @@ class App extends Component {
   filterBooks() {
     const { genreValue, nameValue, booksArray} = this.state;
 
-    // It creates a new array. The new set map function allows unique values in it. Last map returns the actual book from the original booksList array.
+    // It creates a new array. The new set map function allows unique values in it (through their title property). Last map returns the actual books from the original booksList array through the title property.
 
     const uniqueBooks = Array.from(new Set(booksArray.map(book => book.title)))
       .map(title => {
@@ -282,7 +281,7 @@ class App extends Component {
           </Switch>
         </main>
 
-        <UpdateBooksModal show={this.state.isOpen} onClose={this.toggleModal}>
+        <UpdateBooksModal show={this.state.isOpen}>
           <div className="Form__container">
             <div className="Modal__close-button-container">
               <button className="Modal__close-button" onClick={this.toggleModal}><i className="fas fa-times"></i></button>
