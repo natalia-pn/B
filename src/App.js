@@ -245,10 +245,6 @@ class App extends Component {
       isOpen: !this.state.isOpen
     })
   }
-
-  refreshPage(){ 
-    window.location.reload(); 
-  }
   
   render() {
     const { getTitleValue, getAuthorValue, getGenreValue, getPriceValue, submitBook, getSearchName, getSearchGenre, filterBooks, removeBook, form, updateBooksWindow, updateBook, toggleSubmitMessage } = this;
